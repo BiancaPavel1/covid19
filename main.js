@@ -15,6 +15,7 @@ function codeAddress() {
   var address = document.getElementById('address').value;
   geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == 'OK') {
+      console.log(results);
       map.setCenter(results[0].geometry.location);
       getCovidData(results[0].address_components);
     } else {
